@@ -5,6 +5,11 @@ import os
 """ Your login information below. It's probably best to store this in environment variables."""
 EMAIL = 'email@example.com'
 PASSWORD = 'password'
+
+""" Uncomment below and comment out above if you're using environment variables"""
+# EMAIL = os.environ.get('pcoemail')
+# PASSWORD = os.environ.get('pcopass')
+
 """ Internal URL """
 SCRAPEURL = 'https://people.planningcenteronline.com/forms/368/submissions'
 
@@ -25,12 +30,7 @@ with requests.Session() as s:
     login_data['authenticity_token'] = soup.find('input', attrs={'name': 'authenticity_token'})['value']
     login_data['utf8'] = soup.find('input', attrs={'name': 'utf8'})['value']
     r = s.post(url, data=login_data, headers=headers)
-    if r.status_code == 200:
-        print('Successfully Logged into Planning Center!\n\n')
-    else:
-        print('Something went wrong. Please check the url, username, and password\n\n')
 
-    """ The page you actually want to scrape"""
     page = s.get(SCRAPEURL)
-    """ Change this to parse the page you want."""
+    """ Add your own beautiful soup code below"""
     print(page.content)
