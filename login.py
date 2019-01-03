@@ -10,7 +10,7 @@ PASSWORD = 'password'
 # EMAIL = os.environ.get('pcoemail')
 # PASSWORD = os.environ.get('pcopass')
 
-""" Internal URL """
+""" Internal URL that requires user to be logged in"""
 SCRAPEURL = 'https://people.planningcenteronline.com/forms/368/submissions'
 
 """Here is where we setup headers to make it look like a browser"""
