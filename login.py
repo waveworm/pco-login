@@ -20,10 +20,10 @@ headers = {
 }
 
 """This is a dictionary for storing the login post request. Notice 'authenticity_token' is set to None."""
-login_data = dict(utf8=None,
+login_data = dict(utf8=None, # The site wants this field probably for localization. We'll populate this below.
                   email=EMAIL,
                   password=PASSWORD,
-                  authenticity_token=None)
+                  authenticity_token=None) # We'll populate this below after we initilize the session.
 
 with requests.Session() as s:
     """Open a requests session, Store the authenticity_token in the login_data dictionary, make post request with dictionary"""
