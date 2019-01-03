@@ -30,7 +30,7 @@ with requests.Session() as s:
     url = 'https://accounts.planningcenteronline.com/login' # Login URL
     r = s.get(url, headers=headers) # This is where we make the first request to generate an authenticity_token
     soup = BeautifulSoup(r.content, 'html.parser') # We're using Beautiful Soup to scrape the token form the page source
-    """Here we are populating login_data dictionary witht the scraped authenticity_token"""
+    """Here we are populating login_data dictionary with the scraped authenticity_token"""
     login_data['authenticity_token'] = soup.find('input', attrs={'name': 'authenticity_token'})['value']
     """The login also wants a field called utf8 and a value from the site. This is probably for localization."""
     login_data['utf8'] = soup.find('input', attrs={'name': 'utf8'})['value']
